@@ -1,13 +1,26 @@
 <?php
 class Auth extends Controller
 {
+    protected $modelUser;
+
+    function __construct()
+    {
+        $this->modelUser = $this->model("AuthModel");
+    }
+
     public function LogIn()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {            
             $username = $_POST["UserName"];
             $password = $_POST["password"];
+            $password = md5($password);
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
+
+
+            
+
+
             return $this->Views("Share/Layout", ['subview' => 'Product/Index']);
 
         }
@@ -18,7 +31,7 @@ class Auth extends Controller
     public function LogOut()
     {
         session_destroy();
-        header('Location: http://localhost:81/ASM_PHP_VTCA/trang-chu');
+        header('Location: '._WEB_ROOT.'/trang-chu');
     }
 
     public function SignIn()
@@ -31,7 +44,7 @@ class Auth extends Controller
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
 
-//            $this->$model;
+            $this->modelUser->createUser($email, $username, $password);
             
             return $this->Views("Share/Layout", ['subview' => 'Product/Index']);
         } else {
@@ -40,10 +53,9 @@ class Auth extends Controller
     }
 
     public function CheckExits() {
-        $user =  $_GET['user'];
-        if ($user == 'doanhuyxh') {
-            echo json_encode("doanhuyxh");
-        }
-        
+        $user =  $_GET['user'];        
+        $data =  $this->modelUser->CheckExit($user);        
+        echo json_encode($data);        
+        die;
     }
 }

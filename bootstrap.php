@@ -21,7 +21,7 @@ require_once "configs/routes.php";//định nghĩa các router
 require_once "configs/database.php";// định nghĩa thông tin của sơ sở dữ liệu
 require_once "core/Route.php"; //load đường dẫn ảo
 require_once "app/App.php";//Load app
-require_once 'core/Controller.php';//Load base controller
 require_once 'core/Model.php';// load cơ sở dữ liệu
+require_once 'core/Controller.php';//Load base controller
 
 ?>
