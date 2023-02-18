@@ -16,7 +16,7 @@ $web_root = $web_root."/ASM_PHP_VTCA";
 
 define("_WEB_ROOT", $web_root); 
 
-
+error_reporting(0);
 require_once "configs/routes.php";//định nghĩa các router
 require_once "configs/database.php";// định nghĩa thông tin của sơ sở dữ liệu
 require_once "core/Route.php"; //load đường dẫn ảo

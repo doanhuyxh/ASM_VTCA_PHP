@@ -15,19 +15,20 @@ class Auth extends Controller
             $password = $_POST["password"];
             $password = md5($password);
 
+            try {
+                $data = $this->modelUser->GetUser($username, $password);                    
+                if (isset($data[0])) {
+                    $_SESSION["username"] = $username;
+                    $_SESSION["password"] = $password;
 
-
-            $data = $this->modelUser->GetUser($username, $password);
-            var_dump($data);
-            echo "data tra ra tu model: " . isset($data);
-            die;
-
-            if (isset($data)) {
-                $_SESSION["username"] = $username;
-                $_SESSION["password"] = $password;
-                return $this->Views("Share/Layout", ['subview' => 'Product/Index']);
-            } else {
-                return $this->Views("Share/Layout", ['subview' => 'Auth/LogIn']);
+                    header('Location: ' . _WEB_ROOT . '/trang-chu');
+                } else {
+                    session_destroy();                    
+                    return $this->Views("Share/Layout", ['subview' => 'Auth/LogIn', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
+                }
+            } catch (Exception $ex) {
+                session_destroy();
+                return $this->Views("Share/Layout", ['subview' => 'Auth/LogIn', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
             }
         }
 

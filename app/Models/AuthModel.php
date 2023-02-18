@@ -1,6 +1,11 @@
 <?php
 class AuthModel extends Model
 {
+    private $id;
+    private $username;
+    private $password;
+    private $canceled;
+
 
     public function CheckExit($data)
     {
@@ -30,10 +35,6 @@ class AuthModel extends Model
         $stmt = $this->connection->prepare('SELECT username, password from user WHERE username = :username AND password = :password');
         $stmt->execute(array('username' => $username, 'password'=> $password));
         $result = $stmt->fetch();
-        echo "123\n";
-        print_r($result);
-        echo "456";
-        die;
         return [$result['username'], $result['password']];
     }
 }
