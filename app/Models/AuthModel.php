@@ -27,6 +27,13 @@ class AuthModel extends Model
     }
 
     public function GetUser($username, $password) {
-        $stmt = $this->connection->prepare('SELECT username, password from user WHERE name = :username  ');
+        $stmt = $this->connection->prepare('SELECT username, password from user WHERE username = :username AND password = :password');
+        $stmt->execute(array('username' => $username, 'password'=> $password));
+        $result = $stmt->fetch();
+        echo "123\n";
+        print_r($result);
+        echo "456";
+        die;
+        return [$result['username'], $result['password']];
     }
 }

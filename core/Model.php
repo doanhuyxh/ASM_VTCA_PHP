@@ -2,7 +2,7 @@
 
 class Model
 {
-    public $connection;
+    protected $connection;
 
     function __construct()
     {
