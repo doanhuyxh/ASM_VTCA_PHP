@@ -12,11 +12,10 @@ class Auth extends Controller
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $_POST["UserName"];
-            $password = $_POST["password"];
-            $password = md5($password);
+            $password = $_POST["password"];            
 
             try {
-                $data = $this->modelUser->GetUser($username, $password);                    
+                $data = $this->modelUser->GetUser($username, md5($password));                    
                 if (isset($data[0])) {
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;
@@ -24,15 +23,15 @@ class Auth extends Controller
                     header('Location: ' . _WEB_ROOT . '/trang-chu');
                 } else {
                     session_destroy();                    
-                    return $this->Views("Share/Layout", ['subview' => 'Auth/LogIn', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
+                    return $this->Views("Share/Layout", ['subview' => 'Auth/Login', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
                 }
             } catch (Exception $ex) {
                 session_destroy();
-                return $this->Views("Share/Layout", ['subview' => 'Auth/LogIn', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
+                return $this->Views("Share/Layout", ['subview' => 'Auth/Login', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
             }
         }
 
-        return $this->Views("Share/Layout", ['subview' => 'Auth/LogIn']);
+        return $this->Views("Share/Layout", ['subview' => 'Auth/Login']);
     }
 
     public function LogOut()

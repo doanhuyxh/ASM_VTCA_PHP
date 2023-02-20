@@ -1,5 +1,5 @@
 <div class="all center_flex form">
-    <form method="post" action="<?php echo _WEB_ROOT . '/LogIn' ?>">
+    <form method="post" action="<?php echo _WEB_ROOT . '/Auth/Login' ?>">
         <div class="mb-3">
             <label for="UserName" class="form-label w-100">Nhập tài khoản admin đăng nhập</label>
             <input type="text" class="form-control w-100" id="UserName" name="UserName" value="<?php echo (isset($data['user'])) ?  $data['user'] :  " " ?>">
