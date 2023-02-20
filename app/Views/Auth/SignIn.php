@@ -48,7 +48,16 @@
             a = null
             checkUserName = 4;
           }
-        }).catch($('#userCheck').text(" "))
+        }).catch($('#userCheck').text(" "));
+        reload();
+    });
+
+    $("#UserName").blur(function() {
+      if ($("#UserName").val().length < 6) {
+        $("#userCheck").text("Tài khoản phải có độ dài ký tự lớn hơn 6");
+        checkUserName = 2;
+      }
+      reload();
     });
 
     $('#Email').blur(function() {
@@ -60,6 +69,7 @@
         $('#EmailCheck').text("");
         checkMail = 4;
       }
+      reload();
     });
 
     $('#password').blur(function() {
@@ -71,10 +81,12 @@
       } else {
         checkPassword = 4;
         $('#passwordCheck').text("");
-      }
+      };
+
+      reload();
     })
 
-    $('#re_password').blur(function() {
+    $('#re_password').keyup(function() {
       if ($('#re_password').val() == $('#password').val()) {
         checkRePassword = 4;
         $('#re_passwordCheck').text("");
@@ -83,17 +95,17 @@
         checkRePassword = 2;
       }
     })
+    reload();
 
   })
 
-  setInterval(reload, 1000);
-  
+
   function reload() {
     console.clear();
     if (checkRePassword == 4 && checkPassword == 4 && checkMail == 4 && checkUserName == 4) {
       $('#send').prop('disabled', false);
     } else {
-      
+
       $('#send').prop('disabled', true);
     }
   }

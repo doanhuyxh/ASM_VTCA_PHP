@@ -14,7 +14,7 @@ class Auth extends Controller
             $password = $_POST["password"];        
 
             try {
-                $data = $this->modelAdmin->GetAdmin($username, md5($password));                    
+                $data = $this->modelAdmin->GetAdmin($username, md5($password));                
                 if (isset($data[0])) {
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;
