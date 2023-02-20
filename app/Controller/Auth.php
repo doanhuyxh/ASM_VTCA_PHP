@@ -8,7 +8,7 @@ class Auth extends Controller
         $this->modelUser = $this->model("AuthModel");
     }
 
-    public function LogIn()
+    public function Login()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $_POST["UserName"];
@@ -41,7 +41,7 @@ class Auth extends Controller
         header('Location: ' . _WEB_ROOT . '/trang-chu');
     }
 
-    public function SignIn()
+    public function Signin()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST["Email"];

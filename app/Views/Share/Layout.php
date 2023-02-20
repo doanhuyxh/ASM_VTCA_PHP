@@ -21,6 +21,7 @@
     </div>
 
     <div class="all">
+        
         <?php require_once _DIR_ROOT . "/app/Views/" . $data['subview'] . '.php' ?>
     </div>
 
