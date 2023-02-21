@@ -9,5 +9,6 @@ $routes['dang-ky'] = "Auth/Signin";
 $routes['admin-login'] = "/admin/Auth/Login";
 $routes['admin-home'] = "/admin/Dashboard";
 $routes['admin-user'] = "/admin/User";
+$routes['admin-product'] = "/admin/Product";
 $routes['tin-tuc/.+-(\d).html'] = 'New/Category/$!';
 ?>
