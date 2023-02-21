@@ -9,7 +9,7 @@
             <input type="password" class="form-control w-100" id="password" name="password" value="<?php echo (isset($data['pass'])) ?  $data['pass'] :  " " ?>">
         </div>
         <?php
-        echo (isset($data['error'])) ? isset($data['error']) : " ";
+        echo (isset($data['error'])) ? '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>' : " ";
         ?>
         <button type="submit" class="btn btn-primary all">Gửi</button>
     </form>

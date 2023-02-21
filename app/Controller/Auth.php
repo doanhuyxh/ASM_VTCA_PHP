@@ -23,11 +23,11 @@ class Auth extends Controller
                     header('Location: ' . _WEB_ROOT . '/trang-chu');
                 } else {
                     session_destroy();                    
-                    return $this->Views("Share/Layout", ['subview' => 'Auth/Login', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
+                    return $this->Views("Share/Layout", ['subview' => 'Auth/Login', 'error'=> true, 'user'=> $username, 'pass'=> $password]);
                 }
             } catch (Exception $ex) {
                 session_destroy();
-                return $this->Views("Share/Layout", ['subview' => 'Auth/Login', 'error'=> '<p class="text-danger">Tài khoản hoặc mật khẩu không chính xác</p>', 'user'=> $username, 'pass'=> $password]);
+                return $this->Views("Share/Layout", ['subview' => 'Auth/Login', 'error'=> true, 'user'=> $username, 'pass'=> $password]);
             }
         }
 
