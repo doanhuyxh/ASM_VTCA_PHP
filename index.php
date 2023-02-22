@@ -1,6 +1,6 @@
 <?php
     session_status();
-    require_once "bootstrap.php";
+    require_once "LoadApp.php";
     $app = new App();
 ?>
 
