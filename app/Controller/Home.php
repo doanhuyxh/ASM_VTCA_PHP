@@ -11,7 +11,6 @@ class Home extends Controller
     
     public function detail()
     {
-        $subview = "Product/detail";    
-        return $this->Views("Share/Layout", ['subview'=> $subview]);
+        return $this->Views("Share/Layout", ['subview'=> "Product/detail"]);
     }
 }

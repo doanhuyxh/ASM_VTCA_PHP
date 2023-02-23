@@ -9,12 +9,12 @@
     </div>
     <table class="table table-striped table-hover" id="tblProduct">
         <thead>
-            <tr id="list-header ">
-                <th>Mã sản phẩm</th>
-                <th>Tên sản phẩm</th>
-                <th>Loại sản phẩm</th>
-                <th>Giá</th>
-                <th></th>
+            <tr>
+                <th class="col">Mã sản phẩm</th>
+                <th class="col">Tên sản phẩm</th>
+                <th class="col">Loại sản phẩm</th>
+                <th class="col">Giá</th>
+                <th class="col"></th>                
             </tr>
         </thead>
         <tbody>

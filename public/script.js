@@ -8,12 +8,4 @@ $(document).ready(function () {
       [5, 10, 25, 50, 100, "All"],
     ],
   });
-  $("#list-header").on({
-    mouseenter: function () {
-      $(this).css("background-color", "red");
-    },
-    mouseleave: function () {
-      $(this).css("background-color", "lightblue");
-    },
-  });
 });
