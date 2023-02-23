@@ -24,8 +24,6 @@ class ProductModel extends Model {
 
     public function Create($code, $name, $price, $cate) {
         $stmt = $this->connection->prepare('INSERT INTO product (id, product-code, product-name, price, Category, canceled) VALUES (NULL, ?, ?, ?, ?, "0");');  
-        echo "ada";
-        die;
         $stmt->execute([$code, $name, $price, $cate]);
         
     }

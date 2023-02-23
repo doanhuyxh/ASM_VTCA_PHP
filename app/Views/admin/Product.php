@@ -2,7 +2,7 @@
     <div class="table-title m-1">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <div class="col-sm-6">
-                <h2>Manage <b>Product</b></h2>
+                <h2>Quản lý<b>Sản phẩm</b></h2>
             </div>
             <button type="button" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#addProduct">Thêm sản phẩm</button>
         </div>
