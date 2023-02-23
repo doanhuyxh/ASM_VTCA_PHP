@@ -19,27 +19,46 @@ class Product extends Controller {
             $name = $_POST["name"];
             $cate = $_POST["cate"];
             $price = $_POST["price"];
-            
+
+            try{
             $this->modelProduct->Create($code, $name, $price, $cate);
             
-            echo "đã vào đây";
-            die;
-
-            
-
-            $this->Index();
+            }
+            catch (Exception $ex) {
+                echo $ex;
+                $this->Index();
+            }   
         }
 
-        echo "adadasda";
-            die;
     }
 
     public function Edit() {
-        
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $code = $_POST["code"];
+            $name = $_POST["name"];
+            $cate = $_POST["cate"];
+            $price = $_POST["price"];
+            $id = $_POST['id'];
+            try{
+            $this->modelProduct->Edit($code, $name, $price, $cate, $id);
+            }
+            catch (Exception $ex) {
+                echo $ex;
+            }   
+            finally {
+                header('Location: ' . _WEB_ROOT . '/admin-product');
+            }
+        }
     }
 
     public function Delete() {
-        
+        $id = $_GET['id'];
+        try {
+            $this->modelProduct->Delete($id);
+        }
+        catch (Exception $ex) {
+            echo $ex;
+        }  
     }
 
     public function GetAllProduct() {
@@ -47,6 +66,13 @@ class Product extends Controller {
         header("Content-Type: application/json");
         echo json_encode($list, \JSON_UNESCAPED_UNICODE);
         exit();
+    }
+
+    public function GetProductById() {
+        $id = $_GET['id'];
+        $result = $this->modelProduct->GetById($id);
+        echo json_encode($result, \JSON_UNESCAPED_UNICODE);
+        die;
     }
 }
 ?>
