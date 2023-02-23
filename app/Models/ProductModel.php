@@ -14,16 +14,20 @@ class ProductModel extends Model {
                 'id' => $row['id'],
                 'product_code' => $row['product-code'],
                 'product_name' => $row['product-name'],
-                'product_category' => $row['price'],
-                'product_price' => $row['Category'],
+                'product_category' => $row['Category'],
+                'product_price' => $row['price'],
             ]);
         }
+        $list = array_reverse($list, true);
         return $list;
     }
 
     public function Create($code, $name, $price, $cate) {
-        $stmt = $this->connection->prepare('INSERT INTO product (id, product-code, product-name, price, Category, canceled) VALUES (NULL, ?, ?, ?, ?, "0");');
+        $stmt = $this->connection->prepare('INSERT INTO product (id, product-code, product-name, price, Category, canceled) VALUES (NULL, ?, ?, ?, ?, "0");');  
+        echo "ada";
+        die;
         $stmt->execute([$code, $name, $price, $cate]);
+        
     }
 
     public function Edit($code, $name, $price, $cate, $id) {

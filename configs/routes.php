@@ -10,5 +10,6 @@ $routes['admin-login'] = "/admin/Auth/Login";
 $routes['admin-home'] = "/admin/Dashboard";
 $routes['admin-user'] = "/admin/User";
 $routes['admin-product'] = "/admin/Product";
+$routes['admin-create'] = "admin/Product/Create";
 $routes['tin-tuc/.+-(\d).html'] = 'New/Category/$!';
 ?>

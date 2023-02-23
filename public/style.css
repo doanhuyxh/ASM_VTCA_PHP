@@ -1,6 +1,6 @@
 :root {
-    --main-back-ground: rgb(2, 0, 36);
-    --gradient-back-ground: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(1, 163, 31, 1) 0%, rgba(0, 212, 255, 1) 62%);
+    --main-back-ground: rgb(238,174,202);
+    --gradient-back-ground: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 * {
@@ -182,4 +182,7 @@ form {
     width: 90%;
 }
 
+.show{
+    width: 100% !important;
+}
 /* css phần bảng sản phẩm */

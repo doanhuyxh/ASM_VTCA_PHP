@@ -20,7 +20,7 @@ class Auth extends Controller
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;
 
-                    header('Location: ' . _WEB_ROOT . '/admin-home');
+                    header('Location: ' . _WEB_ROOT . '/admin-product');
                 } else {
                     session_destroy();
                     return $this->Views("Share/Layout", ['subview' => 'admin/Login', 'error' => true, 'user' => $username, 'pass' => $password]);
