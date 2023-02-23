@@ -15,18 +15,17 @@ class Auth extends Controller
             $password = $_POST["password"];
 
             try {
-                $data = $this->modelAdmin->GetAdmin($username, md5($password));
+                $data = $this->modelAdmin->GetAdmin(trim($username), trim(md5($password)));
                 if (isset($data[0])) {
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;
-
                     header('Location: ' . _WEB_ROOT . '/admin-product');
                 } else {
-                    session_destroy();
+                    
                     return $this->Views("Share/Layout", ['subview' => 'admin/Login', 'error' => true, 'user' => $username, 'pass' => $password]);
                 }
             } catch (Exception $ex) {
-                session_destroy();
+                
                 return $this->Views("Share/Layout", ['subview' => 'admin/Login', 'error' => true, 'user' => $username, 'pass' => $password]);
             }
         }
@@ -36,7 +35,6 @@ class Auth extends Controller
 
     public function Logout()
     {
-        session_destroy();
         header('Location: ' . _WEB_ROOT . '/trang-chu');
     }
 }

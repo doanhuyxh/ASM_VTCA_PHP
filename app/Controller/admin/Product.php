@@ -22,7 +22,7 @@ class Product extends Controller {
 
             try{
             $this->modelProduct->Create($code, $name, $price, $cate);
-            
+            header('Location: ' . _WEB_ROOT . '/admin-product');
             }
             catch (Exception $ex) {
                 echo $ex;

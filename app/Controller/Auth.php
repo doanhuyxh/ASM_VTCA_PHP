@@ -15,7 +15,7 @@ class Auth extends Controller
             $password = $_POST["password"];            
 
             try {
-                $data = $this->modelUser->GetUser($username, md5($password));                    
+                $data = $this->modelUser->GetUser(trim($username), trim(md5($password)));                    
                 if (isset($data[0])) {
                     $_SESSION["username"] = $username;
                     $_SESSION["password"] = $password;
@@ -50,9 +50,9 @@ class Auth extends Controller
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
 
-            $this->modelUser->createUser($email, $username, $password);
+            $this->modelUser->createUser($email, $username, trim(md5($password)));
 
-            return $this->Views("Share/Layout", ['subview' => 'Product/Index']);
+            header('Location: ' . _WEB_ROOT . '/trang-chu');
         } else {
             return $this->Views("Share/Layout", ['subview' => 'Auth/SignIn']);
         }

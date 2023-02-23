@@ -1,8 +1,12 @@
+<div class="row justify-content-end">
+    <p class="col-1"><a href="<?php echo _WEB_ROOT. '/dang-xuat'?>" class="btn btn-danger">Đăng xuất</a></p>
+</div>
+
 <div class="bg-light bg-gradient rounded p-5 m-2">
     <div class="table-title m-1">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <div class="col-sm-6">
-                <h2>Quản lý<b>Sản phẩm</b></h2>
+                <h2>Quản lý<b> Sản phẩm</b></h2>
             </div>
             <button type="button" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#addProduct">Thêm sản phẩm</button>
         </div>

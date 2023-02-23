@@ -27,7 +27,7 @@ class AuthModel extends Model
 
         $email = $mail;
         $username = $user;
-        $password = md5($pass);
+        $password = $pass;
         $stmt->execute();
     }
 
