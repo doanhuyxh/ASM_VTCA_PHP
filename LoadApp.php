@@ -12,7 +12,7 @@ else {
 
 $folder = str_replace(strtolower($_SERVER['DOCUMENT_ROOT']), '', strtolower(__DIR__));
 
-$web_root = $web_root."/ASM_PHP_VTCA";
+$web_root = $web_root."/ASM_VTCA_PHP";
 
 define("_WEB_ROOT", $web_root); 
 
