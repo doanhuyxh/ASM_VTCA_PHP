@@ -26,10 +26,10 @@ class Product extends Controller {
             }
             catch (Exception $ex) {
                 echo $ex;
-                $this->Index();
+                header('Location: ' . _WEB_ROOT . '/admin-product');
             }   
         }
-
+        header('Location: ' . _WEB_ROOT . '/admin-product');
     }
 
     public function Edit() {

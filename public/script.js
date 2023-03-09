@@ -21,7 +21,7 @@ function Delete(id) {
     confirmButtonText: "Yes",
   }).then((result) => {
     if (result.value) {
-      fetch(`http://localhost:81/ASM_PHP_VTCA/admin/Product/Delete?id=${id}`).then(()=>{
+      fetch(`http://localhost:81/ASM_VTCA_PHP/admin/Product/Delete?id=${id}`).then(()=>{
         window.location.reload();
       });
     }
@@ -29,7 +29,7 @@ function Delete(id) {
 }
 
 function Edit(id) {
-  fetch(`http://localhost:81/ASM_PHP_VTCA/admin/Product/GetProductById?id=${id}`).then(res=>res.json()).then(data=>{
+  fetch(`http://localhost:81/ASM_VTCA_PHP/admin/Product/GetProductById?id=${id}`).then(res=>res.json()).then(data=>{
     $('#editProduct').modal("show");
     console.log(data);
     $("#edit_id").val(data[0]);
